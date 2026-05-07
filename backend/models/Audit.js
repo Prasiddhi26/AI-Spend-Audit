@@ -2,7 +2,7 @@
 // This file defines what an "Audit" document looks like in MongoDB.
 // Think of this as a blueprint / template for every audit we save.
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 // -------------------------------------------------------------------
 // Sub-schema: A single tool the user entered
@@ -138,4 +138,5 @@ const AuditSchema = new mongoose.Schema(
 
 // Export the model so controllers can use it
 // mongoose.model("Audit", AuditSchema) creates a collection called "audits" in MongoDB
-module.exports = mongoose.model("Audit", AuditSchema);
+const Audit = mongoose.model("Audit", AuditSchema);
+export default Audit;

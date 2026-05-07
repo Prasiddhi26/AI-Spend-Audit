@@ -1,9 +1,9 @@
 // routes/leadRoutes.js
 
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const { createLead } = require("../controllers/leadController");
+import{ createLead } from "../controllers/leadController.js";
 
 // -------------------------------------------------------------------
 // POST /api/lead
@@ -12,4 +12,4 @@ const { createLead } = require("../controllers/leadController");
 // -------------------------------------------------------------------
 router.post("/", createLead);
 
-module.exports = router;
+export default router;

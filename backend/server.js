@@ -3,8 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import connectDB from "./config/db.js";
-const auditRoutes = require("./routes/auditRoutes");
-const leadRoutes = require("./routes/leadRoutes");
+import auditRoutes from "./routes/auditRoutes.js";
+import leadRoutes from "./routes/leadRoutes.js";
 
 dotenv.config();
 

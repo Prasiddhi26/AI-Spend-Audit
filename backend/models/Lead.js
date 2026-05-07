@@ -5,7 +5,7 @@
 //   - The public shareable URL can show audit data without exposing the email
 //   - We can query leads independently (for CRM / sales team use)
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const LeadSchema = new mongoose.Schema(
   {
@@ -51,4 +51,5 @@ const LeadSchema = new mongoose.Schema(
 
 // Export the model
 // This creates a "leads" collection in MongoDB
-module.exports = mongoose.model("Lead", LeadSchema);
+const Lead = mongoose.model("Lead", LeadSchema);
+export default Lead;

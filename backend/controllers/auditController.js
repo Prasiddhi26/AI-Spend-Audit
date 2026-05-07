@@ -3,11 +3,12 @@
 // Think of controllers as the "chef" — routes just say "hey, someone ordered X",
 // and the controller actually prepares the response.
 
-const { v4: uuidv4 } = require("uuid");
+import { v4 as uuidv4 } from "uuid";
 // uuidv4() generates a random unique string like "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
 // We'll trim it and use the first 12 characters as our auditId
 
-const Audit = require("../models/Audit");
+
+import Audit from "../models/Audit.js";
 
 // -------------------------------------------------------------------
 // @desc    Create a new audit and save it to the database
@@ -152,4 +153,4 @@ const getAudit = async (req, res) => {
 };
 
 // Export both controllers so routes can use them
-module.exports = { createAudit, getAudit };
+export { createAudit, getAudit };

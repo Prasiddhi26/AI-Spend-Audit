@@ -2,8 +2,8 @@
 // Handles saving a user's email after they've seen their audit results.
 // This is the "email gate" — value is shown FIRST, then email is captured.
 
-const Lead = require("../models/Lead");
-const Audit = require("../models/Audit");
+import Lead from "../models/Lead.js";
+import Audit from "../models/Audit.js";
 
 // -------------------------------------------------------------------
 // @desc    Save a lead (email + optional details) linked to an audit
@@ -101,4 +101,4 @@ const createLead = async (req, res) => {
   }
 };
 
-module.exports = { createLead };
+export { createLead };

@@ -2,11 +2,11 @@
 // Routes are like a "menu" — they tell Express what to do when a specific
 // HTTP method + URL path is hit. The actual work happens in the controller.
 
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // Import the controller functions we wrote
-const { createAudit, getAudit } = require("../controllers/auditController");
+import { createAudit, getAudit } from "../controllers/auditController.js";
 
 // -------------------------------------------------------------------
 // POST /api/audit
@@ -22,4 +22,4 @@ router.post("/", createAudit);
 // -------------------------------------------------------------------
 router.get("/:id", getAudit);
 
-module.exports = router;
+export default router;
