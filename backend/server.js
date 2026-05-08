@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/audit", auditRoutes);
 app.use("/api/lead", leadRoutes);
+app.use("/api/audit", auditRoutes);
 
 // test route 
 app.get("/", (req, res) => {

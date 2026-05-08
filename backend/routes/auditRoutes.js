@@ -6,7 +6,7 @@ import express from "express";
 const router = express.Router();
 
 // Import the controller functions we wrote
-import { createAudit, getAudit } from "../controllers/auditController.js";
+import { createAudit, getAudit, runAuditController } from "../controllers/auditController.js";
 
 // -------------------------------------------------------------------
 // POST /api/audit
@@ -21,5 +21,7 @@ router.post("/", createAudit);
 // :id is the dynamic auditId in the URL e.g. /api/audit/9b1deb4d3b7d
 // -------------------------------------------------------------------
 router.get("/:id", getAudit);
+// run audit
+router.post("/run", runAuditController);
 
 export default router;

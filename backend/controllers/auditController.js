@@ -9,12 +9,39 @@ import { v4 as uuidv4 } from "uuid";
 
 
 import Audit from "../models/Audit.js";
-
+import { runAudit } from "../services/auditEngine.js";
 // -------------------------------------------------------------------
 // @desc    Create a new audit and save it to the database
 // @route   POST /api/audit
 // @access  Public
 // -------------------------------------------------------------------
+const runAuditController = (req, res) => {
+  try {
+    const { tools, useCase } = req.body;
+
+    if (!tools || !Array.isArray(tools)) {
+      return res.status(400).json({
+        success: false,
+        message: "Tools array is required",
+      });
+    }
+
+    const result = runAudit(tools, useCase || "mixed");
+
+    return res.status(200).json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.error("Audit Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
+
 const createAudit = async (req, res) => {
   try {
     // Step 1: Extract data from the request body
@@ -153,4 +180,4 @@ const getAudit = async (req, res) => {
 };
 
 // Export both controllers so routes can use them
-export { createAudit, getAudit };
+export { createAudit, getAudit, runAuditController };
